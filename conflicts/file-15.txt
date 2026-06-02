@@ -1,8 +1,8 @@
 MergeHub conflict fixture 15
 Shared intro line
 BEGIN-CONFLICT-BLOCK-15
-base value alpha 15
-base value beta 15
-base value gamma 15
+feature value alpha 15 from PR branch
+feature value beta 15 from PR branch
+feature value gamma 15 from PR branch
 END-CONFLICT-BLOCK-15
 Shared outro line

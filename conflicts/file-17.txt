@@ -1,8 +1,8 @@
 MergeHub conflict fixture 17
 Shared intro line
 BEGIN-CONFLICT-BLOCK-17
-base value alpha 17
-base value beta 17
-base value gamma 17
+feature value alpha 17 from PR branch
+feature value beta 17 from PR branch
+feature value gamma 17 from PR branch
 END-CONFLICT-BLOCK-17
 Shared outro line

@@ -1,8 +1,8 @@
 MergeHub conflict fixture 07
 Shared intro line
 BEGIN-CONFLICT-BLOCK-07
-base value alpha 07
-base value beta 07
-base value gamma 07
+feature value alpha 07 from PR branch
+feature value beta 07 from PR branch
+feature value gamma 07 from PR branch
 END-CONFLICT-BLOCK-07
 Shared outro line

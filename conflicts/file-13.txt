@@ -1,0 +1,8 @@
+MergeHub conflict fixture 13
+Shared intro line
+BEGIN-CONFLICT-BLOCK-13
+base value alpha 13
+base value beta 13
+base value gamma 13
+END-CONFLICT-BLOCK-13
+Shared outro line

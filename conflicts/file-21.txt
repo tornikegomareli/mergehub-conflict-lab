@@ -1,0 +1,8 @@
+MergeHub conflict fixture 21
+Shared intro line
+BEGIN-CONFLICT-BLOCK-21
+base value alpha 21
+base value beta 21
+base value gamma 21
+END-CONFLICT-BLOCK-21
+Shared outro line

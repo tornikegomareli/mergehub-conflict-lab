@@ -1,0 +1,8 @@
+MergeHub conflict fixture 05
+Shared intro line
+BEGIN-CONFLICT-BLOCK-05
+base value alpha 05
+base value beta 05
+base value gamma 05
+END-CONFLICT-BLOCK-05
+Shared outro line

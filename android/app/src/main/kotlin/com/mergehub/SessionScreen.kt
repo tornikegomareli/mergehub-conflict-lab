@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 fun SessionScreen(title: String, unresolvedCount: Int, onOpen: () -> Unit) {
     Column(modifier = Modifier.padding(16.dp)) {
         Text(text = title)
-        Text(text = "$unresolvedCount files need attention")
-        Button(onClick = onOpen) { Text("Open workspace") }
+        Text(text = if (unresolvedCount == 0) "Ready to apply" else "$unresolvedCount files need attention")
+        Button(onClick = onOpen) { Text("Open editor") }
     }
 }

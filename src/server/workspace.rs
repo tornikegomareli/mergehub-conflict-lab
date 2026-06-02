@@ -10,11 +10,11 @@ pub struct Workspace {
 
 impl Workspace {
     pub fn new(root: PathBuf, session_id: String) -> Self {
-        Self { root, session_id }
+        Self { root: root.canonicalize().unwrap_or(root), session_id }
     }
 
     pub fn file_path(&self, relative: &str) -> Result<PathBuf> {
-        let candidate = self.root.join(relative);
+        let candidate = self.root.join(relative).canonicalize()?;
         if !candidate.starts_with(&self.root) {
             anyhow::bail!("path escapes workspace");
         }
@@ -23,9 +23,9 @@ impl Workspace {
 }
 
 pub fn contains_conflict_markers(contents: &str) -> bool {
-    contents.contains("<<<<<<<") || contents.contains("=======") || contents.contains(">>>>>>>")
+    contents.lines().any(|line| matches!(line, "<<<<<<<" | "=======" | ">>>>>>>"))
 }
 
 pub fn read_utf8_file(path: &Path) -> Result<String> {
-    std::fs::read_to_string(path).with_context(|| format!("read {}", path.display()))
+    std::fs::read_to_string(path).with_context(|| format!("read workspace file {}", path.display()))
 }

@@ -7,13 +7,13 @@ struct SessionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title).font(.headline)
-            Text("\(unresolvedCount) files need attention").foregroundStyle(.secondary)
+            Text(unresolvedCount == 0 ? "Ready to apply" : "\(unresolvedCount) files need attention").foregroundStyle(.secondary)
             Button("Open workspace") { openWorkspace() }
         }
         .padding()
     }
 
     private func openWorkspace() {
-        print("Opening MergeHub workspace")
+        print("Opening focused editor")
     }
 }

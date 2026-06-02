@@ -19,7 +19,7 @@ func main() {
         _, _ = w.Write([]byte("ok"))
     })
     mux.HandleFunc("/api/session", func(w http.ResponseWriter, _ *http.Request) {
-        _ = json.NewEncoder(w).Encode(Session{ID: "demo", State: "ready", Files: []string{}})
+        _ = json.NewEncoder(w).Encode(Session{ID: "demo", State: "Ready", Files: []string{"cmd/api/main.go"}})
     })
     log.Fatal(http.ListenAndServe(":3000", mux))
 }

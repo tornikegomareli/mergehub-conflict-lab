@@ -10,23 +10,23 @@ export function ConflictEditor({ files }: { files: ConflictFile[] }) {
   const [selectedPath, setSelectedPath] = useState(files[0]?.path ?? "");
   const selected = files.find((file) => file.path === selectedPath);
   const unresolved = useMemo(
-    () => files.filter((file) => file.markers > 0).length,
+    () => files.reduce((total, file) => total + file.markers, 0),
     [files],
   );
 
   return (
-    <section className="workspace" aria-label="Conflict editor">
-      <aside className="file-list">
-        <strong>{unresolved} files need attention</strong>
+    <section className="workspace workspace--compact" aria-label="Conflict editor">
+      <nav className="file-list">
+        <strong>{unresolved} markers remaining</strong>
         {files.map((file) => (
-          <button key={file.path} onClick={() => setSelectedPath(file.path)}>
+          <button key={file.path} aria-current={file.path === selectedPath} onClick={() => setSelectedPath(file.path)}>
             {file.path}
           </button>
         ))}
-      </aside>
+      </nav>
       <main className="editor-pane">
-        <h1>{selected?.path ?? "No file selected"}</h1>
-        <p>{selected?.markers ?? 0} markers left</p>
+        <h2>{selected?.path ?? "No file selected"}</h2>
+        <p>{selected?.dirty ? "Unsaved" : "Saved"}</p>
       </main>
     </section>
   );

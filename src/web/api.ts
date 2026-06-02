@@ -7,7 +7,7 @@ export interface SessionResponse {
 export async function getSession(id: string): Promise<SessionResponse> {
   const response = await fetch(`/api/sessions/${encodeURIComponent(id)}`);
   if (!response.ok) {
-    throw new Error(await response.text());
+    throw new Error(`Could not load session ${id}: ${await response.text()}`);
   }
   return response.json() as Promise<SessionResponse>;
 }
@@ -18,6 +18,6 @@ export async function saveFile(id: string, path: string, contents: string) {
     body: contents,
   });
   if (!response.ok) {
-    throw new Error("Could not save file");
+    throw new Error(await response.text());
   }
 }

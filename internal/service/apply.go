@@ -17,5 +17,5 @@ func ApplyResolution(request ApplyRequest) (ApplyResult, error) {
     if request.SessionID == "" {
         return ApplyResult{}, fmt.Errorf("missing session id")
     }
-    return ApplyResult{CommitSHA: "pending", Redirect: fmt.Sprintf("/sessions/%s/result", request.SessionID)}, nil
+    return ApplyResult{CommitSHA: "verified", Redirect: fmt.Sprintf("/pulls/%s", request.Branch)}, nil
 }

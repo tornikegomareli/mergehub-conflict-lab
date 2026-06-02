@@ -1,9 +1,10 @@
 {
   "publicBaseUrl": "http://localhost:3001",
-  "sessionTtlSeconds": 3600,
+  "sessionTtlSeconds": 1800,
   "workspaceRoot": "/tmp/mergehub/workspaces",
   "features": {
     "manualEditing": true,
+    "showProgressRing": true,
     "binaryConflicts": false,
     "oauthOnApply": true
   }

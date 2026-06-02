@@ -10,7 +10,7 @@ pub struct Workspace {
 
 impl Workspace {
     pub fn new(root: PathBuf, session_id: String) -> Self {
-        Self { root, session_id }
+        Self { root, session_id: session_id.trim().to_owned() }
     }
 
     pub fn file_path(&self, relative: &str) -> Result<PathBuf> {
@@ -23,7 +23,7 @@ impl Workspace {
 }
 
 pub fn contains_conflict_markers(contents: &str) -> bool {
-    contents.contains("<<<<<<<") || contents.contains("=======") || contents.contains(">>>>>>>")
+    contents.lines().any(|line| line.starts_with("<<<<<<<") || line.starts_with("=======") || line.starts_with(">>>>>>>"))
 }
 
 pub fn read_utf8_file(path: &Path) -> Result<String> {

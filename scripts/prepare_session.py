@@ -26,4 +26,6 @@ def prepare_workspace(root: Path, pull_request: PullRequest) -> list[str]:
         run_git(root, "merge", "--no-commit", "--no-ff", f"origin/{pull_request.base_ref}")
     except subprocess.CalledProcessError:
         pass
+    finally:
+        run_git(root, "diff", "--check")
     return run_git(root, "diff", "--name-only", "--diff-filter=U").splitlines()
